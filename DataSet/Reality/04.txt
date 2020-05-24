@@ -1,12 +1,16 @@
 {
-	"name":"KPIE St Pete-Clearwater International Airport 35R",
-	"length":2966,
-	"width":46,
-	"elevation":10,
-	"heading":351,
-	"position":"N27° 53.82' W82° 41.17'",
-	"l0":[130, 445],
-	"r0":[515, 446],
-	"l1":[272, 59],
-	"r1":[361, 59]
+	"Runway":
+	{
+		"L0": [130, 445],
+		"R0": [515, 446],
+		"L1": [272, 59],
+		"R1": [361, 59],
+		"Lat": "N27° 53.82'",
+		"Lon": "W82° 41.17'",
+		"Alt": 10,
+		"Mag": 351,
+		"Length": 2966,
+		"Width": 46,
+		"Name": "KPIE St Pete-Clearwater International Airport 35R",
+	}
 }
