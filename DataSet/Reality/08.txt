@@ -1,0 +1,12 @@
+{
+	"name":"N68 Franklin County Regional Airport",
+	"length":1006,
+	"width":23,
+	"elevation":684,
+	"heading":228,
+	"position":"N39° 58.56' W77° 38.33'",
+	"l0":[106, 228],
+	"r0":[375, 231],
+	"l1":[210, 66],
+	"r1":[243, 66]
+}

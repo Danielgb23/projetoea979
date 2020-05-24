@@ -1,0 +1,12 @@
+{
+	"name":"N13 Bloomsburg Municipal 27",
+	"length":975,
+	"width":18,
+	"elevation":481,
+	"heading":257,
+	"position":"N40° 59.92' W76° 25.78'",
+	"l0":[325, 323],
+	"r0":[419, 324],
+	"l1":[300, 90],
+	"r1":[343, 91]
+}

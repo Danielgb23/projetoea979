@@ -1,0 +1,12 @@
+{
+	"name":"ENGM Oslo Gardermoen Airport 19R",
+	"length":3600,
+	"width":45,
+	"elevation":675,
+	"heading":194,
+	"position":"N60° 12.96' E11° 5.50'",
+	"l0":[688, 458],
+	"r0":[749, 459],
+	"l1":[704, 348],
+	"r1":[729, 348]
+}

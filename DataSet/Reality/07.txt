@@ -1,0 +1,12 @@
+{
+	"name":"KORG Orange County Airport 04",
+	"length":1676,
+	"width":23,
+	"elevation":10,
+	"heading":42,
+	"position":"N30° 3.75' W93° 48.48'",
+	"l0":[200, 228],
+	"r0":[277, 227],
+	"l1":[244, 82],
+	"r1":[261, 82]
+}
