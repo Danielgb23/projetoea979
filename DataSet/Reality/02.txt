@@ -11,6 +11,6 @@
 		"Mag": 196,
 		"Length": 3560,
 		"Width": 46,
-		"Name": "YBBN Brisbame 19",
+		"Name": "YBBN Brisbame 19"
 	}
 }

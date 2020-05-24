@@ -11,6 +11,6 @@
 		"Mag": 241,
 		"Length": 1127,
 		"Width": 46,
-		"Name": "EGWC Cosford 24",
+		"Name": "EGWC Cosford 24"
 	}
 }

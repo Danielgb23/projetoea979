@@ -11,6 +11,6 @@
 		"Mag": 265,
 		"Length": 1706,
 		"Width": 46,
-		"Name": "EGJJ Jersey Airport 27",
+		"Name": "EGJJ Jersey Airport 27"
 	}
 }

@@ -4,7 +4,7 @@
 		"Lat": "N47° 15.50'",
 		"Lon": "E11° 19.60'",
 		"Alt": 2032,
-		"Mag": 
+		"Mag": 79
 	},
 	"Runway":
 	{
@@ -18,6 +18,6 @@
 		"Mag": 79,
 		"Length": 2000,
 		"Width": 45,
-		"Name": "LOWI 08",
+		"Name": "LOWI 08"
 	}
 }

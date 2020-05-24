@@ -11,6 +11,6 @@
 		"Mag": 228,
 		"Length": 1006,
 		"Width": 23,
-		"Name": "N68 Franklin County Regional Airport",
+		"Name": "N68 Franklin County Regional Airport"
 	}
 }

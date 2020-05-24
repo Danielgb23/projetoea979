@@ -11,6 +11,6 @@
 		"Mag": 257,
 		"Length": 975,
 		"Width": 18,
-		"Name": "N13 Bloomsburg Municipal 27",
+		"Name": "N13 Bloomsburg Municipal 27"
 	}
 }

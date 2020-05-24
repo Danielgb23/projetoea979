@@ -11,6 +11,6 @@
 		"Mag": 42,
 		"Length": 1676,
 		"Width": 23,
-		"Name": "KORG Orange County Airport 04",
+		"Name": "KORG Orange County Airport 04"
 	}
 }

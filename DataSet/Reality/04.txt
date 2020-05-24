@@ -11,6 +11,6 @@
 		"Mag": 351,
 		"Length": 2966,
 		"Width": 46,
-		"Name": "KPIE St Pete-Clearwater International Airport 35R",
+		"Name": "KPIE St Pete-Clearwater International Airport 35R"
 	}
 }

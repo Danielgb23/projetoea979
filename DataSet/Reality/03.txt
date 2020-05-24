@@ -11,6 +11,6 @@
 		"Mag": 194,
 		"Length": 3600,
 		"Width": 45,
-		"Name": "ENGM Oslo Gardermoen Airport 19R",
+		"Name": "ENGM Oslo Gardermoen Airport 19R"
 	}
 }

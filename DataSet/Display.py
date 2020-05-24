@@ -5,26 +5,9 @@ from PIL import Image;
 import matplotlib;
 matplotlib.use("GTK3Agg");
 import matplotlib.pyplot as PLT;
-import pytesseract;
+import json;
 
-def ReadHeader(I):
-	Header = NP.array(I.crop((0, 24, 730, 41)));
-	Header[:, :, 0][Header[:, :, 0] < 230] = 0;
-	Header[:, :, 1] *= 0;
-	Header[:, :, 2] *= 0;
-	
-	HeaderText = pytesseract.image_to_string(Image.fromarray(Header)).split();
-
-	Lat = HeaderText[1] + " " + HeaderText[2].split("\"")[0]+"'";
-	Lon = HeaderText[4] + " " + HeaderText[5].split("\"")[0]+"'";
-	Alt = HeaderText[7];
-	if (len(HeaderText[10][3:])):
-		Mag = HeaderText[10][3:];
-	else:
-		Mag = HeaderText[11];
-	
-	return [Lat, Lon, Alt, Mag];
-
+"""
 def GetCoordinates(I):
 	Figure = PLT.figure()
 	F = Figure.add_subplot(1, 1, 1);
@@ -70,27 +53,19 @@ def ReportData(Out, Header, Coordinates, Airport):
 	F.write("\t\t\"Mag\": " + Airport[3] + ",\n");
 	F.write("\t\t\"Length\": " + Airport[4] + ",\n");
 	F.write("\t\t\"Width\": " + Airport[5] + ",\n");
-	F.write("\t\t\"Name\": \"" + Airport[6] + "\"\n");
+	F.write("\t\t\"Name\": \"" + Airport[6] + "\",\n");
 	F.write("\t}\n");
 	
 	F.write("}\n");
 	F.close();
-
+"""
 In = sys.argv[1];
-Out = os.path.splitext(In)[0]+".txt";
+InTxt = os.path.splitext(In)[0]+".txt";
 I = Image.open(In);
 
-AirportLOWI26 = ["N47° 15.70'", "E11° 21.42'", "1894", "259", "2000", "45", "LOWI 26"];
-AirportLOWI08 = ["N47° 15.54'", "E11° 19.94'", "1906", "79", "2000", "45", "LOWI 08"];
-Airport = ["N27° 53.82'",
-		"W82° 41.17'",
-		"10",
-		"351",
-		"2966",
-		"46",
-		"KPIE St Pete-Clearwater International Airport 35R"];
-
-Header = ReadHeader(I);
-Coordinates = GetCoordinates(I);
-
-ReportData(Out, Header, Coordinates, AirportLOWI08);
+File = open(InTxt, "r");
+S = File.read();
+print(S);
+Data = json.loads(S);
+File.close();
+print(Data);
