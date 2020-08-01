@@ -19,18 +19,11 @@ def PerspectiveCoefficients(A, B):
 	res = NP.dot(NP.linalg.inv(A.T * A) * A.T, B)
 	return NP.array(res).reshape(8)
 
-def Correct(JSON):
-	#Opens original image:
-	I = Image.open(JSON["Image"]);
-
-	Results = JSON["Results"];
-	L0 = NP.array(Results["L0"]);
-	R0 = NP.array(Results["R0"]);
-	L1 = NP.array(Results["L1"]);
-	R1 = NP.array(Results["R1"]);
-	Runway = JSON["Runway"];
-	Width = NP.array(Runway["Width"]);
-	Length = NP.array(Runway["Length"]);
+def Correction(I, Points, Width, Length):
+	L0 = NP.array(Points["L0"]);
+	R0 = NP.array(Points["R0"]);
+	L1 = NP.array(Points["L1"]);
+	R1 = NP.array(Points["R1"]);
 
 	C0 = (L0+R0)/2.0;
 	C1 = (L1+R1)/2.0;
@@ -79,17 +72,32 @@ def Correct(JSON):
 	[L0, R0, L1, R1] = [(0, H), (W, H), (0, 0), (W, 0)];
 
 	#Resize:
-	AspectRatioFactor = 0.25;
+	AspectRatioFactor = 0.4;
 	VScale = AspectRatioFactor*Length/Width;
 	I = I.resize((I.size[0], int(VScale*I.size[1])), Image.ANTIALIAS)
 	[L0, R0, L1, R1] = [(0, VScale*H), (W, VScale*H), (0, 0), (W, 0)];
+	
+	return I, NP.transpose(NP.vstack([L0, L1, R1, R0, L0]));
 
-	Figure = PLT.figure()
-	F = Figure.add_subplot(1, 1, 1);
-	F.imshow(I);
+def Correct(JSON):
+	#Opens original image:
+	I = Image.open(JSON["Image"]);
 
-	P = NP.transpose(NP.vstack([L0, L1, R1, R0, L0]));
+	Runway = JSON["Runway"];
+	Width = NP.array(Runway["Width"]);
+	Length = NP.array(Runway["Length"]);
 
-	F.plot(P[0], P[1]);
+	A, PA = Correction(I, JSON["Runway"], Width, Length);
+	B, PB = Correction(I, JSON["Results"], Width, Length);
+
+	Figure = PLT.figure("Correction")
+	F = Figure.add_subplot(1, 2, 1);
+	F.imshow(A);
+	F.plot(PA[0], PA[1]);
+	F.title.set_text("Expected:");
+	F = Figure.add_subplot(1, 2, 2);
+	F.imshow(B);
+	F.plot(PB[0], PB[1]);
+	F.title.set_text("Obtained:");
 
 	PLT.show();

@@ -1,0 +1,16 @@
+{
+	"Runway":
+	{
+		"L0": [683, 531],
+		"R0": [875, 533],
+		"L1": [760, 227],
+		"R1": [836, 227],
+		"Lat": "N36° 32.58'",
+		"Lon": "W86° 54.96'",
+		"Alt": 706,
+		"Mag": 216,
+		"Length": 1678,
+		"Width": 30,
+		"Name": "M91 Springfield Robertson County Airport"
+	}
+}

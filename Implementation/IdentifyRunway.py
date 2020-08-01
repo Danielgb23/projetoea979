@@ -14,6 +14,7 @@ def Pol2Cart(P):
 
 def IdentifyRunway(JSON):
 	RawImage = cv2.imread(JSON["Image"]);
+	Result = copy.copy(RawImage);
 
 	# 1. Enhance contrast;
 	Alpha = 3.0;
@@ -64,10 +65,10 @@ def IdentifyRunway(JSON):
 	Edges = np.zeros(Edges1.shape, np.uint8);
 	LineWidth = 4;
 	for L in Lines:
-		cv2.line(RawImage, (L[0]+Margin, L[1]+Margin), (L[2]+Margin, L[3]+Margin), (0, 255, 0), 1);
+		cv2.line(Result, (L[0]+Margin, L[1]+Margin), (L[2]+Margin, L[3]+Margin), (0, 255, 0), 1);
 		cv2.line(Edges, (L[0]+Margin, L[1]+Margin), (L[2]+Margin, L[3]+Margin), (255, 255, 255), LineWidth);
-		cv2.circle(RawImage, (L[0]+Margin, L[1]+Margin), 2, (255, 0, 0), -1);
-		cv2.circle(RawImage, (L[2]+Margin, L[3]+Margin), 2, (255, 0, 0), -1);
+		cv2.circle(Result, (L[0]+Margin, L[1]+Margin), 2, (255, 0, 0), -1);
+		cv2.circle(Result, (L[2]+Margin, L[3]+Margin), 2, (255, 0, 0), -1);
 
 	# 9. Hough 2:
 	Lines = cv2.HoughLinesP(Edges, 1, np.pi/180, threshold = 20, minLineLength = 40, maxLineGap = 8);
@@ -105,10 +106,10 @@ def IdentifyRunway(JSON):
 	#Draw results:
 	cv2.line(DrawnEdges, A, B, (255, 0, 255), 5);
 	cv2.line(DrawnEdges, C, D, (255, 0, 255), 5);
-	cv2.circle(RawImage, A, 5, (0, 255, 255), -1);
-	cv2.circle(RawImage, B, 5, (0, 255, 255), -1);
-	cv2.circle(RawImage, C, 5, (0, 255, 255), -1);
-	cv2.circle(RawImage, D, 5, (0, 255, 255), -1);
+	cv2.circle(Result, A, 5, (0, 255, 255), -1);
+	cv2.circle(Result, B, 5, (0, 255, 255), -1);
+	cv2.circle(Result, C, 5, (0, 255, 255), -1);
+	cv2.circle(Result, D, 5, (0, 255, 255), -1);
 
 	A = np.asarray(A);
 	B = np.asarray(B);
@@ -138,7 +139,8 @@ def IdentifyRunway(JSON):
 	cv2.imshow("Blur2", Blur2);
 	cv2.imshow("Edges1", Edges1);
 	cv2.imshow("Edges2", Edges2);
-	cv2.imshow("DrawnEdges", DrawnEdges);
+	cv2.imshow("Drawn Edges", DrawnEdges);
+	cv2.imshow("Result", Result);
 
 	cv2.waitKey(0);
 	cv2.destroyAllWindows();
