@@ -20,7 +20,6 @@ def Main():
 	ExportPath = None;
 	if (len(sys.argv) > 2):
 		ExportPath = sys.argv[2];
-		print("Path: ", ExportPath);
 		os.makedirs(ExportPath, exist_ok = True);
 		if (not os.path.exists(ExportPath)):
 			ExportPath = None;
