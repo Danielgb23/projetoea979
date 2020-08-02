@@ -7,7 +7,7 @@ matplotlib.use("GTK3Agg");
 import matplotlib.pyplot as PLT;
 import json;
 
-def Display(JSON):
+def Display(JSON, ExportPath):
 	Figure = PLT.figure("Identification")
 	F = Figure.add_subplot(1, 1, 1);
 	F.imshow(Image.open(JSON["Image"]));
@@ -38,3 +38,7 @@ def Display(JSON):
 
 	PLT.title("Identification Results:")
 	PLT.show();
+	
+	#Export plot:
+	if (ExportPath is not None):
+		Figure.savefig(ExportPath + "/09 Display.png");

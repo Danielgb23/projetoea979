@@ -12,7 +12,7 @@ def Cart2Pol(P):
 def Pol2Cart(P):
 	return([P[0] * np.cos(P[1]), P[0] * np.sin(P[1])]);
 
-def IdentifyRunway(JSON):
+def IdentifyRunway(JSON, ExportPath):
 	RawImage = cv2.imread(JSON["Image"]);
 	Result = copy.copy(RawImage);
 
@@ -127,10 +127,10 @@ def IdentifyRunway(JSON):
 	
 	#Add results to JSON:
 	JSON["Results"] = dict();
-	JSON["Results"]["L0"] = Pol2Cart(Vertex[3])+Center;
-	JSON["Results"]["R0"] = Pol2Cart(Vertex[2])+Center;
-	JSON["Results"]["L1"] = Pol2Cart(Vertex[0])+Center;
-	JSON["Results"]["R1"] = Pol2Cart(Vertex[1])+Center;
+	JSON["Results"]["L0"] = (Pol2Cart(Vertex[3])+Center).tolist();
+	JSON["Results"]["R0"] = (Pol2Cart(Vertex[2])+Center).tolist();
+	JSON["Results"]["L1"] = (Pol2Cart(Vertex[0])+Center).tolist();
+	JSON["Results"]["R1"] = (Pol2Cart(Vertex[1])+Center).tolist();
 	
 	#Show results:
 	cv2.imshow("RawImage", RawImage);
@@ -141,8 +141,19 @@ def IdentifyRunway(JSON):
 	cv2.imshow("Edges2", Edges2);
 	cv2.imshow("Drawn Edges", DrawnEdges);
 	cv2.imshow("Result", Result);
+	
+	#Export images:
+	if (ExportPath is not None):
+		cv2.imwrite(ExportPath+"/01 Image.jpg", RawImage);
+		cv2.imwrite(ExportPath+"/02 Contrast.jpg", Contrast);
+		cv2.imwrite(ExportPath+"/03 Blur1.jpg", Blur1);
+		cv2.imwrite(ExportPath+"/04 Blur2.jpg", Blur2);
+		cv2.imwrite(ExportPath+"/05 Edges1.jpg", Edges1);
+		cv2.imwrite(ExportPath+"/06 Edges2.jpg", Edges2);
+		cv2.imwrite(ExportPath+"/07 DrawnEdges.jpg", DrawnEdges);
+		cv2.imwrite(ExportPath+"/08 Result.jpg", Result);
 
 	cv2.waitKey(0);
 	cv2.destroyAllWindows();
-	
+
 	return JSON;

@@ -79,7 +79,7 @@ def Correction(I, Points, Width, Length):
 	
 	return I, NP.transpose(NP.vstack([L0, L1, R1, R0, L0]));
 
-def Correct(JSON):
+def Correct(JSON, ExportPath):
 	#Opens original image:
 	I = Image.open(JSON["Image"]);
 
@@ -99,5 +99,9 @@ def Correct(JSON):
 	F.imshow(B);
 	F.plot(PB[0], PB[1]);
 	F.title.set_text("Obtained:");
+	
+	#Export plot:
+	if (ExportPath is not None):
+		Figure.savefig(ExportPath + "/10 Correct.png");
 
 	PLT.show();
