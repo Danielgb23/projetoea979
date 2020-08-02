@@ -1,0 +1,16 @@
+{
+	"Runway":
+	{
+		"L0": [150, 228],
+		"R0": [253, 230],
+		"L1": [190, 66],
+		"R1": [221, 67],
+		"Lat": "N39° 58.56'",
+		"Lon": "W77° 38.33'",
+		"Alt": 684,
+		"Mag": 228,
+		"Length": 1006,
+		"Width": 23,
+		"Name": "N68 Franklin County Regional Airport"
+	}
+}

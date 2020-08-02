@@ -1,0 +1,46 @@
+{
+    "Runway": {
+        "L0": [
+            130,
+            445
+        ],
+        "R0": [
+            515,
+            446
+        ],
+        "L1": [
+            272,
+            59
+        ],
+        "R1": [
+            361,
+            59
+        ],
+        "Lat": "N27\u00b0 53.82'",
+        "Lon": "W82\u00b0 41.17'",
+        "Alt": 10,
+        "Mag": 351,
+        "Length": 2966,
+        "Width": 46,
+        "Name": "KPIE St Pete-Clearwater International Airport 35R"
+    },
+    "Image": "../DataSet/Selected/Real/01.jpg",
+    "Results": {
+        "L0": [
+            100.0,
+            540.0
+        ],
+        "R0": [
+            541.0,
+            494.0
+        ],
+        "L1": [
+            278.0,
+            50.0
+        ],
+        "R1": [
+            347.0,
+            37.0
+        ]
+    }
+}
