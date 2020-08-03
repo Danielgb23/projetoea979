@@ -3,7 +3,7 @@ import os;
 import numpy as NP;
 from PIL import Image;
 import matplotlib;
-matplotlib.use("GTK3Agg");
+#matplotlib.use("GTK3Agg");
 import matplotlib.pyplot as PLT;
 import json;
 
