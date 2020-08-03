@@ -5,6 +5,7 @@ import json;
 import IdentifyRunway;
 import Display;
 import Correct;
+import Calculate;
 
 def ReadJSON(JSONPath, Path):
 	File = open(JSONPath, "r");
@@ -34,13 +35,15 @@ def Main():
 	JSON = IdentifyRunway.IdentifyRunway(JSON, ExportPath);
 	Display.Display(JSON, ExportPath);
 	Correct.Correct(JSON, ExportPath);
-	#DetermineOrigin(JSON);
+	JSON = Calculate.find_position(JSON);
 
 	#Export JSON:
 	if (ExportPath is not None):
 		File = open(ExportPath + "/11 JSON.txt", "w");
 		json.dump(JSON, File, indent = 4);
 		File.close();
+	
+	print(json.dumps(JSON, indent = 4));
 
 if (__name__ == "__main__"):
 	Main();
